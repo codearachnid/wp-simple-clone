@@ -38,7 +38,7 @@ if (!defined('ABSPATH') )
 // Add the 'Clone' link to post actions
 function wpsc_add_clone_link($actions, $post) {
     // Define the post types where you want the clone functionality
-    $post_types = apply_filters( 'wpsc_clonable_types', ['post', 'page', 'custom_post_type'] ); // Add your desired post types here
+    $post_types = apply_filters( 'wpsc_clonable_types', ['post', 'page'] ); // Add your desired post types here
 
     if (in_array($post->post_type, $post_types)) {
         $actions['clone'] = '<a href="' . wp_nonce_url('admin.php?action=wpsc_clone_post&post=' . $post->ID, basename(__FILE__), 'wpsc_nonce') . '" title="Clone this item" rel="permalink">Clone</a>';
